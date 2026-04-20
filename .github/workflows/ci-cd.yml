@@ -19,7 +19,7 @@ jobs:
         run: docker build -t healthcare-ai .
 
       - name: Run container (test)
-        run: docker run -d -p 8501:8501 healthcare-ai
+        run: docker run -d -p 8501:8501 -e GROQ_API_KEY=${{ secrets.GROQ_API_KEY }} healthcare-ai
 
       - name: Check running containers
         run: docker ps
